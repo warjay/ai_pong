@@ -148,21 +148,21 @@ for tick in tqdm(range(5000000000)):
     clock.tick(60)
     delta_time = 0.03 # simulate 60 FPS
     
-    # for i in pygame.event.get():
-    #     if i.type == pygame.QUIT:
-    #         run = False
-    #     if HUMAN and i.type == pygame.KEYDOWN:
-    #         if i.key == pygame.K_w:
-    #             leftPaddle_velocity = -PADDLE_SPEED
-    #         if i.key == pygame.K_s:
-    #             leftPaddle_velocity = PADDLE_SPEED
-            # if i.key == pygame.K_UP:
-            #     rightPaddle_velocity = -PADDLE_SPEED
-            # if i.key == pygame.K_DOWN:
-            #     rightPaddle_velocity = PADDLE_SPEED
-        # if HUMAN and i.type == pygame.KEYUP:
-        #     leftPaddle_velocity = 0
-        #     rightPaddle_velocity = 0
+    for i in pygame.event.get():
+        if i.type == pygame.QUIT:
+            run = False
+        if HUMAN and i.type == pygame.KEYDOWN:
+            if i.key == pygame.K_w:
+                leftPaddle_velocity = -PADDLE_SPEED
+            if i.key == pygame.K_s:
+                leftPaddle_velocity = PADDLE_SPEED
+            if i.key == pygame.K_UP:
+                rightPaddle_velocity = -PADDLE_SPEED
+            if i.key == pygame.K_DOWN:
+                rightPaddle_velocity = PADDLE_SPEED
+        if HUMAN and i.type == pygame.KEYUP:
+            leftPaddle_velocity = 0
+            rightPaddle_velocity = 0
 
     # Check if collide with top / bottom of screen
     if ballY <= BALL_RADIUS or ballY >= HEIGHT - BALL_RADIUS:
